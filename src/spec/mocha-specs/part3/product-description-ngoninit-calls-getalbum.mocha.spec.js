@@ -17,9 +17,9 @@ describe('ProductDescription', function() {
     let callToGetAlbum = match[1].trim();
 
     if (callToGetAlbum.includes('subscribe')) {
-      let re2 = /this\._productService\s*\.\s*getAlbum\(1\)\s*\.\s*subscribe\(([\w\s\=\.\>]+)\)/
+      let re2 = /this\._productService\.getAlbum\(1\)\.subscribe\(([\w\s\=\.\>]+)\)/
       let match2 = match[1].match(re2)
-      assert(Array.isArray(match2), "The ProductDescription's `ngOnInit()` method body isn't chaining the correct call to subscribe onto the end of the call to `getAlbum()`.")
+      assert(Array.isArray(match2), "The ProductDescription's `ngOnInit()` method body isn't chaining the correct call to subscribe onto the end of the call to `getAlbum()`")
 
       let variable_used_to_capture_response = match2[1].match(/\s*(\w+)\s*\=/);
 
@@ -28,7 +28,7 @@ describe('ProductDescription', function() {
 
       assert(Array.isArray(match2[1].match(regex)), "The call to `getAlbum()` in ProductDescription's `ngOnInit()` method body isn't subscribing to the response and assigning it to `this.albumInfo`.")
     } else {
-      let re2 = /this\._productService\s*\.\s*getAlbum\(1\)/
+      let re2 = /this\._productService\.getAlbum\(1\)/
       assert(match[0].match(re2), "The ProductDescription `ngOnInit()` method body isn't making the correct call to the ProductService's `getAlbum` method.")
     }
 
